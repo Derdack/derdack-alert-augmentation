@@ -10,7 +10,7 @@ var TEST_MESSAGE = "<at>Enterprise Alert</at>&nbsp;testing testing\n"
 var PARAMETER_WITH_HTML = "text" // Name of the event parameter containing html markup
 var PARAMETER_NEW = "pureText" // Desired name of the new event parameter that will not contain any html markup
 var REMOVE_STRING = "Enterprise Alert"; // Any phrase you'd like to be removed entirely from the pure text result
-
+var SCRIPTING_HOST_DIR = "C:\\Program Files\\Enterprise Alert\\ScriptingHost\\Scripts\\"; // Where all these scripts have to be
 
 
 /*
@@ -37,7 +37,7 @@ function OnNewEvent(eventObject)
 
 function ExecutePowershell(htmlString)
 {
-    var strCommand = "powershell.exe \"node.exe 'html_text.js' '" + htmlString + "'\"";
+    var strCommand = "powershell.exe \"node.exe '" + SCRIPTING_HOST_DIR + "html_text.js' '" + htmlString + "'\"";
 	    
 	//EAScriptHost.LogInfo("Executing command: " + strCommand);
 	
